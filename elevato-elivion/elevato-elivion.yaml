@@ -3,7 +3,7 @@ info:
   version: 0.0.1
   title: Elevato to Elivion API
 servers:
-  - url: https://auth.cv-assistant.elivion.io
+  - url: https://cv-assistant.elivion.io
 paths:
   /api/elevato/v1/recruitment:
     $ref: './paths/recruitment.yaml#/create-process'
