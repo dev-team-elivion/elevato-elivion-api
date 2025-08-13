@@ -1,0 +1,101 @@
+analysis-error:
+  post:
+    summary: Report Analysis Problem
+    operationId: reportAnalysisProblem
+    requestBody:
+      $ref: '#/components/requestBodies/CVAssistantResultIncompleteRequest'
+    responses:
+      200:
+        description: Successfully reported analysis problem
+
+analysis-results:
+  post:
+    summary: Submit Complete Analysis Results
+    operationId: submitCompleteAnalysisResults
+    requestBody:
+      $ref: '#/components/requestBodies/CVAssistantResultCompleteRequest'
+    responses:
+      200:
+        description: Successfully submitted analysis results
+
+components:
+  requestBodies:
+    CVAssistantResultIncompleteRequest:
+      description: Report CV Analysis Problem
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CVAssistantResultIncompleteRequest'
+
+    CVAssistantResultCompleteRequest:
+      description: Submit Complete CV Analysis Results
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CVAssistantResultCompleteRequest'
+
+  schemas:
+    BaseAnalysisResult:
+      type: object
+      properties:
+        externalCandidateId:
+          type: string
+        externalRecruitmentProjectId:
+          type: string
+        status:
+          type: string
+      required:
+        - externalCandidateId
+        - externalRecruitmentProjectId
+        - status
+
+    CVAssistantResultIncompleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/BaseAnalysisResult'
+        - type: object
+          properties:
+            errorCode:
+              type: string
+            errorDescription:
+              type: string
+          required:
+            - errorCode
+            - errorDescription
+
+    AnalysisSummary:
+      type: object
+      properties:
+        candidateDescription:
+          type: string
+        strengths:
+          type: string
+        weaknesses:
+          type: string
+        redFlags:
+          type: string
+      required:
+        - candidateDescription
+        - strengths
+        - weaknesses
+        - redFlags
+
+    CVAssistantResultCompleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/BaseAnalysisResult'
+        - type: object
+          properties:
+            endDate:
+              type: string
+              format: date-time
+            match:
+              type: integer
+              minimum: 0
+              maximum: 100
+            summary:
+              $ref: '#/components/schemas/AnalysisSummary'
+          required:
+            - endDate
+            - match
+            - summary

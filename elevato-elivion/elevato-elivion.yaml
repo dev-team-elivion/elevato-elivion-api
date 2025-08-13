@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info:
+  version: 0.0.1
+  title: Elevato to Elivion API
+servers:
+  - url: https://auth.cv-assistant.elivion.io
+paths:
+  /api/elevato/v1/recruitment:
+    $ref: './paths/recruitment.yaml#/create-process'
+  /api/elevato/v1/recruitment/{externalProjectId}:
+    $ref: './paths/recruitment.yaml#/update-process'
+  /api/elevato/v1/recruitment/{externalProjectId}/candidates:
+    $ref: './paths/recruitment.yaml#/create-candidate'
+  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}/file:
+    $ref: './paths/recruitment.yaml#/upload-candidate-file'
+  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}/report:
+    $ref: './paths/recruitment.yaml#/get-candidate-report'
+  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}:
+    $ref: './paths/recruitment.yaml#/delete-candidate'
+
+

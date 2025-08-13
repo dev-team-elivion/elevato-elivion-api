@@ -1,0 +1,171 @@
+create-process:
+  post:
+    summary: Create Recruitment
+    operationId: createRecruitment
+    requestBody:
+      $ref: '#/components/requestBodies/CreateRecruitmentRequest'
+    responses:
+      201:
+        description: Created
+
+update-process:
+  put:
+    summary: Update Recruitment
+    operationId: updateRecruitment
+    parameters:
+      - name: externalRecruitmentProjectId
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      $ref: '#/components/requestBodies/UpdateRecruitmentRequest'
+    responses:
+      200:
+        description: OK
+
+create-candidate:
+  post:
+    summary: Add Candidate
+    operationId: createCandidate
+    parameters:
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
+    requestBody:
+      $ref: '#/components/requestBodies/CreateCandidateRequest'
+    responses:
+      201:
+        description: Created
+
+upload-candidate-file:
+  post:
+    summary: Upload Candidate File
+    operationId: uploadCandidateFile
+    parameters:
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
+      - $ref: '#/components/parameters/externalCandidateId'
+    requestBody:
+      $ref: '#/components/requestBodies/UploadCandidateFileRequest'
+    responses:
+      200:
+        description: OK
+
+get-candidate-report:
+  get:
+    summary: Get Candidate Report
+    operationId: getCandidateReport
+    parameters:
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
+      - $ref: '#/components/parameters/externalCandidateId'
+    responses:
+      200:
+        $ref: '#/components/responses/GetCandidateReportResponse'
+
+delete-candidate:
+  delete:
+    summary: Delete Candidate
+    operationId: deleteCandidate
+    parameters:
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
+      - $ref: '#/components/parameters/externalCandidateId'
+    responses:
+      204:
+        description: No Content
+
+components:
+  parameters:
+    externalRecruitmentProjectId:
+      name: externalRecruitmentProjectId
+      in: path
+      required: true
+      schema:
+        type: string
+    externalCandidateId:
+      name: externalCandidateId
+      in: path
+      required: true
+      schema:
+        type: string
+
+  requestBodies:
+    CreateRecruitmentRequest:
+      description: Create Recruitment Process
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateRecruitmentRequest'
+
+    UpdateRecruitmentRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateRecruitmentRequest'
+
+    CreateCandidateRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateCandidateRequest'
+
+    UploadCandidateFileRequest:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/UploadCandidateFileRequest'
+  responses:
+    GetCandidateReportResponse:
+      description: Get Candidate Report
+      content:
+        application/json:
+          schema:
+            type: string
+            format: byte
+  schemas:
+    RecruitmentDetails:
+      type: object
+      properties:
+        shortDescription:
+          type: string
+        duties:
+          type: string
+        requiredSkills:
+          type: string
+        additionalInformation:
+          type: string
+
+    RecruitmentId:
+      type: object
+      properties:
+        externalRecruitmentProjectId:
+          type: string
+      required:
+        - externalRecruitmentProjectId
+
+    CreateRecruitmentRequest:
+      allOf:
+        - $ref: '#/components/schemas/RecruitmentDetails'
+        - $ref: '#/components/schemas/RecruitmentId'
+
+    UpdateRecruitmentRequest:
+      allOf:
+        - $ref: '#/components/schemas/RecruitmentDetails'
+
+    CreateCandidateRequest:
+      type: object
+      properties:
+        externalCandidateId:
+          type: string
+      required:
+        - externalCandidateId
+
+    UploadCandidateFileRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+      required:
+        - file
