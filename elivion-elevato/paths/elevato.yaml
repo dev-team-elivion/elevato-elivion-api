@@ -41,9 +41,11 @@ components:
       type: object
       properties:
         externalCandidateId:
-          type: string
+          type: integer
+          minimum: 0
         externalRecruitmentProjectId:
-          type: string
+          type: integer
+          minimum: 0
         status:
           type: string
       required:
