@@ -148,6 +148,12 @@ components:
       allOf:
         - $ref: '#/components/schemas/RecruitmentDetails'
         - $ref: '#/components/schemas/RecruitmentId'
+        - type: object
+          properties:
+            customerDomain:
+              type: string
+          required:
+            - customerDomain
 
     UpdateRecruitmentRequest:
       allOf:
