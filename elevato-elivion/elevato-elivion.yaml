@@ -7,15 +7,15 @@ servers:
 paths:
   /api/elevato/v1/recruitment:
     $ref: './paths/recruitment.yaml#/create-process'
-  /api/elevato/v1/recruitment/{externalProjectId}:
+  /api/elevato/v1/recruitment/{externalRecruitmentProjectId}:
     $ref: './paths/recruitment.yaml#/update-process'
-  /api/elevato/v1/recruitment/{externalProjectId}/candidates:
+  /api/elevato/v1/recruitment/{externalRecruitmentProjectId}/candidates:
     $ref: './paths/recruitment.yaml#/create-candidate'
-  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}/file:
+  /api/elevato/v1/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/file:
     $ref: './paths/recruitment.yaml#/upload-candidate-file'
-  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}/report:
+  /api/elevato/v1/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/report:
     $ref: './paths/recruitment.yaml#/get-candidate-report'
-  /api/elevato/v1/recruitment/{externalProjectId}/candidates/{externalCandidateId}:
+  /api/elevato/v1/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}:
     $ref: './paths/recruitment.yaml#/delete-candidate'
 
 
