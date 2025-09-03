@@ -46,7 +46,7 @@ upload-candidate-file:
     requestBody:
       $ref: '#/components/requestBodies/UploadCandidateFileRequest'
     responses:
-      200:
+      202:
         description: OK
 
 get-candidate-report:
