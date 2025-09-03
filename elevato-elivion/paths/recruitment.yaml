@@ -8,7 +8,7 @@ create-process:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
     requestBody:
       $ref: '#/components/requestBodies/CreateRecruitmentRequest'
     responses:
@@ -25,7 +25,7 @@ update-process:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/UpdateRecruitmentRequest'
@@ -43,7 +43,7 @@ create-candidate:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/CreateCandidateRequest'
@@ -61,7 +61,7 @@ upload-candidate-file:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     requestBody:
@@ -80,7 +80,7 @@ get-candidate-report:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:
@@ -97,7 +97,7 @@ delete-candidate:
       - apiKey: []
         customerApiKey: []
     parameters:
-      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:
