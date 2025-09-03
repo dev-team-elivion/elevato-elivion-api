@@ -72,11 +72,17 @@ components:
         candidateDescription:
           type: string
         strengths:
-          type: string
+          type: array
+          items:
+            type: string
         weaknesses:
-          type: string
+          type: array
+          items:
+            type: string
         redFlags:
-          type: string
+          type: array
+          items:
+            type: string
       required:
         - candidateDescription
         - strengths
