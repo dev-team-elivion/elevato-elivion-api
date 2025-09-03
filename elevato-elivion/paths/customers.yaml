@@ -1,0 +1,74 @@
+create-customer:
+  post:
+    tags:
+      - ElevatoRest
+    summary: Create a customer
+    operationId: createCustomer
+    requestBody:
+      $ref: '#/components/requestBodies/CreateCustomerRequest'
+    responses:
+      200:
+        $ref: '#/components/responses/CreateCustomerResponse'
+
+update-customer:
+  put:
+    tags:
+      - ElevatoRest
+    summary: Update a customer
+    operationId: updateCustomer
+    parameters:
+      - $ref: '../paths/common-models.yaml#/components/parameters/customerId'
+    requestBody:
+      $ref: '#/components/requestBodies/UpdateCustomerRequest'
+
+components:
+  requestBodies:
+    CreateCustomerRequest:
+      description: Create a customer
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateCustomerRequest'
+    UpdateCustomerRequest:
+      description: Update a customer
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateCustomerRequest'
+
+  responses:
+    CreateCustomerResponse:
+      description: Create a customer response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateCustomerResponse'
+  schemas:
+    CreateCustomerRequest:
+      type: object
+      properties:
+        customerId:
+          type: string
+        customerDomain:
+          type: string
+      required:
+        - customerDomain
+        - customerId
+
+    UpdateCustomerRequest:
+      type: object
+      properties:
+        customerDomain:
+          type: string
+      required:
+        - customerDomain
+
+    CreateCustomerResponse:
+      type: object
+      properties:
+        apiKey:
+          type: string
+      required:
+        - apiKey

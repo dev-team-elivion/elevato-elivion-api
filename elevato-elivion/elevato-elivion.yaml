@@ -5,7 +5,12 @@ info:
 servers:
   - url: https://cv-assistant.elivion.io
 paths:
-  /api/elevato/v1/recruitment:
+# Customers
+  /api/elevato/v1/customers:
+    $ref: './paths/customers.yaml#/create-customer'
+  /api/elevato/v1/customers/{customerId}:
+    $ref: './paths/customers.yaml#/update-customer'
+
 # Recruitments
   /api/elevato/v1/customers/{customerId}/recruitment:
     $ref: './paths/recruitment.yaml#/create-process'
