@@ -4,6 +4,8 @@ analysis-error:
       - ElevatoSpi
     summary: Report Analysis Problem
     operationId: reportAnalysisProblem
+    security:
+      - apiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultIncompleteRequest'
     responses:
@@ -16,6 +18,8 @@ analysis-results:
       - ElevatoSpi
     summary: Submit Complete Analysis Results
     operationId: submitCompleteAnalysisResults
+    security:
+      - apiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultCompleteRequest'
     responses:
