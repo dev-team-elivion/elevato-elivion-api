@@ -1,7 +1,7 @@
 create-process:
   post:
     tags:
-      - ElevatoRest
+      - ElevatoRecruitmentRest
     summary: Create Recruitment
     operationId: createRecruitment
     security:
@@ -18,7 +18,7 @@ create-process:
 update-process:
   put:
     tags:
-      - ElevatoRest
+      - ElevatoRecruitmentRest
     summary: Update Recruitment
     operationId: updateRecruitment
     security:
@@ -36,7 +36,7 @@ update-process:
 create-candidate:
   post:
     tags:
-      - ElevatoRest
+      - ElevatoCandidateRest
     summary: Add Candidate
     operationId: createCandidate
     security:
@@ -54,7 +54,7 @@ create-candidate:
 upload-candidate-file:
   post:
     tags:
-      - ElevatoRest
+      - ElevatoCandidateRest
     summary: Upload Candidate File
     operationId: uploadCandidateFile
     security:
@@ -73,7 +73,7 @@ upload-candidate-file:
 get-candidate-report:
   get:
     tags:
-      - ElevatoRest
+      - ElevatoCandidateRest
     summary: Get Candidate Report
     operationId: getCandidateReport
     security:
@@ -90,7 +90,7 @@ get-candidate-report:
 delete-candidate:
   delete:
     tags:
-      - ElevatoRest
+      - ElevatoCandidateRest
     summary: Delete Candidate
     operationId: deleteCandidate
     security:

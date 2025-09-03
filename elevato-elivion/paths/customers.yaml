@@ -1,7 +1,7 @@
 create-customer:
   post:
     tags:
-      - ElevatoRest
+      - ElevatoCustomerRest
     summary: Create a customer
     operationId: createCustomer
     security:
@@ -15,7 +15,7 @@ create-customer:
 update-customer:
   put:
     tags:
-      - ElevatoRest
+      - ElevatoCustomerRest
     summary: Update a customer
     operationId: updateCustomer
     security:
