@@ -4,6 +4,9 @@ create-process:
       - ElevatoRest
     summary: Create Recruitment
     operationId: createRecruitment
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
     requestBody:
@@ -18,6 +21,9 @@ update-process:
       - ElevatoRest
     summary: Update Recruitment
     operationId: updateRecruitment
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
@@ -33,6 +39,9 @@ create-candidate:
       - ElevatoRest
     summary: Add Candidate
     operationId: createCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
@@ -48,6 +57,9 @@ upload-candidate-file:
       - ElevatoRest
     summary: Upload Candidate File
     operationId: uploadCandidateFile
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
@@ -64,6 +76,9 @@ get-candidate-report:
       - ElevatoRest
     summary: Get Candidate Report
     operationId: getCandidateReport
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
@@ -78,6 +93,9 @@ delete-candidate:
       - ElevatoRest
     summary: Delete Candidate
     operationId: deleteCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
       - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'

@@ -4,6 +4,8 @@ create-customer:
       - ElevatoRest
     summary: Create a customer
     operationId: createCustomer
+    security:
+      - apiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CreateCustomerRequest'
     responses:
@@ -16,6 +18,8 @@ update-customer:
       - ElevatoRest
     summary: Update a customer
     operationId: updateCustomer
+    security:
+      - apiKey: []
     parameters:
       - $ref: '../paths/common-models.yaml#/components/parameters/customerId'
     requestBody:
