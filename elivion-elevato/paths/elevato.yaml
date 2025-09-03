@@ -1,7 +1,11 @@
 analysis-error:
   post:
+    tags:
+      - ElevatoSpi
     summary: Report Analysis Problem
     operationId: reportAnalysisProblem
+    security:
+      - apiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultIncompleteRequest'
     responses:
@@ -10,8 +14,12 @@ analysis-error:
 
 analysis-results:
   post:
+    tags:
+      - ElevatoSpi
     summary: Submit Complete Analysis Results
     operationId: submitCompleteAnalysisResults
+    security:
+      - apiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultCompleteRequest'
     responses:
@@ -72,11 +80,17 @@ components:
         candidateDescription:
           type: string
         strengths:
-          type: string
+          type: array
+          items:
+            type: string
         weaknesses:
-          type: string
+          type: array
+          items:
+            type: string
         redFlags:
-          type: string
+          type: array
+          items:
+            type: string
       required:
         - candidateDescription
         - strengths

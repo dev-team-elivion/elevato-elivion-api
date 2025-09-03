@@ -1,7 +1,14 @@
 create-process:
   post:
+    tags:
+      - ElevatoRecruitmentRest
     summary: Create Recruitment
     operationId: createRecruitment
+    security:
+      - apiKey: []
+        customerApiKey: []
+    parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
     requestBody:
       $ref: '#/components/requestBodies/CreateRecruitmentRequest'
     responses:
@@ -10,14 +17,16 @@ create-process:
 
 update-process:
   put:
+    tags:
+      - ElevatoRecruitmentRest
     summary: Update Recruitment
     operationId: updateRecruitment
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
-      - name: externalRecruitmentProjectId
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/UpdateRecruitmentRequest'
     responses:
@@ -26,9 +35,15 @@ update-process:
 
 create-candidate:
   post:
+    tags:
+      - ElevatoCandidateRest
     summary: Add Candidate
     operationId: createCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/CreateCandidateRequest'
@@ -38,22 +53,34 @@ create-candidate:
 
 upload-candidate-file:
   post:
+    tags:
+      - ElevatoCandidateRest
     summary: Upload Candidate File
     operationId: uploadCandidateFile
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     requestBody:
       $ref: '#/components/requestBodies/UploadCandidateFileRequest'
     responses:
-      200:
+      202:
         description: OK
 
 get-candidate-report:
   get:
+    tags:
+      - ElevatoCandidateRest
     summary: Get Candidate Report
     operationId: getCandidateReport
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:
@@ -62,9 +89,15 @@ get-candidate-report:
 
 delete-candidate:
   delete:
+    tags:
+      - ElevatoCandidateRest
     summary: Delete Candidate
     operationId: deleteCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
     parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:

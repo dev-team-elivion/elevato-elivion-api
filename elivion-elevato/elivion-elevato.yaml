@@ -10,4 +10,11 @@ paths:
   /v1/Elivion/CVAssistantResultComplete:
     $ref: './paths/elevato.yaml#/analysis-results'
 
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+
 
