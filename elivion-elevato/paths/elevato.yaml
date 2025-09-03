@@ -1,5 +1,7 @@
 analysis-error:
   post:
+    tags:
+      - ElevatoSpi
     summary: Report Analysis Problem
     operationId: reportAnalysisProblem
     requestBody:
@@ -10,6 +12,8 @@ analysis-error:
 
 analysis-results:
   post:
+    tags:
+      - ElevatoSpi
     summary: Submit Complete Analysis Results
     operationId: submitCompleteAnalysisResults
     requestBody:

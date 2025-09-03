@@ -1,5 +1,7 @@
 create-process:
   post:
+    tags:
+      - ElevatoRest
     summary: Create Recruitment
     operationId: createRecruitment
     parameters:
@@ -12,6 +14,8 @@ create-process:
 
 update-process:
   put:
+    tags:
+      - ElevatoRest
     summary: Update Recruitment
     operationId: updateRecruitment
     parameters:
@@ -25,6 +29,8 @@ update-process:
 
 create-candidate:
   post:
+    tags:
+      - ElevatoRest
     summary: Add Candidate
     operationId: createCandidate
     parameters:
@@ -38,6 +44,8 @@ create-candidate:
 
 upload-candidate-file:
   post:
+    tags:
+      - ElevatoRest
     summary: Upload Candidate File
     operationId: uploadCandidateFile
     parameters:
@@ -52,6 +60,8 @@ upload-candidate-file:
 
 get-candidate-report:
   get:
+    tags:
+      - ElevatoRest
     summary: Get Candidate Report
     operationId: getCandidateReport
     parameters:
@@ -64,6 +74,8 @@ get-candidate-report:
 
 delete-candidate:
   delete:
+    tags:
+      - ElevatoRest
     summary: Delete Candidate
     operationId: deleteCandidate
     parameters:
