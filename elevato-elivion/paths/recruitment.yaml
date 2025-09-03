@@ -2,6 +2,8 @@ create-process:
   post:
     summary: Create Recruitment
     operationId: createRecruitment
+    parameters:
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
     requestBody:
       $ref: '#/components/requestBodies/CreateRecruitmentRequest'
     responses:
@@ -13,11 +15,8 @@ update-process:
     summary: Update Recruitment
     operationId: updateRecruitment
     parameters:
-      - name: externalRecruitmentProjectId
-        in: path
-        required: true
-        schema:
-          type: string
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
+      - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/UpdateRecruitmentRequest'
     responses:
@@ -29,6 +28,7 @@ create-candidate:
     summary: Add Candidate
     operationId: createCandidate
     parameters:
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/CreateCandidateRequest'
@@ -41,6 +41,7 @@ upload-candidate-file:
     summary: Upload Candidate File
     operationId: uploadCandidateFile
     parameters:
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     requestBody:
@@ -54,6 +55,7 @@ get-candidate-report:
     summary: Get Candidate Report
     operationId: getCandidateReport
     parameters:
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:
@@ -65,6 +67,7 @@ delete-candidate:
     summary: Delete Candidate
     operationId: deleteCandidate
     parameters:
+      - $ref: './common-models.yaml/#/components/parameters/customerId'
       - $ref: '#/components/parameters/externalRecruitmentProjectId'
       - $ref: '#/components/parameters/externalCandidateId'
     responses:
