@@ -53,14 +53,10 @@ components:
     CreateCustomerRequest:
       type: object
       properties:
-        customerId:
-          type: integer
-          format: int64
         customerDomain:
           type: string
       required:
         - customerDomain
-        - customerId
 
     UpdateCustomerRequest:
       type: object
@@ -73,7 +69,12 @@ components:
     CreateCustomerResponse:
       type: object
       properties:
+        elivionCustomerId:
+          type: string
+          format: uuid
         apiKey:
           type: string
+          format: uuid
       required:
         - apiKey
+        - elivionCustomerId
