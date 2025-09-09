@@ -16,5 +16,9 @@ components:
       type: apiKey
       in: header
       name: X-API-KEY
+    customerApiKey:
+      type: apiKey
+      in: header
+      name: X-CUSTOMER-API-KEY
 
 

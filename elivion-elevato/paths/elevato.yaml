@@ -6,6 +6,7 @@ analysis-error:
     operationId: reportAnalysisProblem
     security:
       - apiKey: []
+        customerApiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultIncompleteRequest'
     responses:
@@ -20,6 +21,7 @@ analysis-results:
     operationId: submitCompleteAnalysisResults
     security:
       - apiKey: []
+        customerApiKey: []
     requestBody:
       $ref: '#/components/requestBodies/CVAssistantResultCompleteRequest'
     responses:
