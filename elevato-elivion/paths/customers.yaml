@@ -55,8 +55,12 @@ components:
       properties:
         customerDomain:
           type: string
+        customerApiKey:
+          type: string
+          format: uuid
       required:
         - customerDomain
+        - customerApiKey
 
     UpdateCustomerRequest:
       type: object
