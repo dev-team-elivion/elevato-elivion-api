@@ -51,25 +51,6 @@ create-candidate:
       201:
         description: Created
 
-upload-candidate-file:
-  post:
-    tags:
-      - ElevatoCandidateRest
-    summary: Upload Candidate File
-    operationId: uploadCandidateFile
-    security:
-      - apiKey: []
-        customerApiKey: []
-    parameters:
-      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
-      - $ref: '#/components/parameters/externalRecruitmentProjectId'
-      - $ref: '#/components/parameters/externalCandidateId'
-    requestBody:
-      $ref: '#/components/requestBodies/UploadCandidateFileRequest'
-    responses:
-      202:
-        description: OK
-
 delete-candidate:
   delete:
     tags:
@@ -126,13 +107,6 @@ components:
           schema:
             $ref: '#/components/schemas/CreateCandidateRequest'
 
-    UploadCandidateFileRequest:
-      required: true
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/UploadCandidateFileRequest'
-
   schemas:
     RecruitmentDetails:
       type: object
@@ -176,12 +150,4 @@ components:
 
       required:
         - externalCandidateId
-
-    UploadCandidateFileRequest:
-      type: object
-      properties:
-        file:
-          type: string
-          format: binary
-      required:
-        - file
+        - files
