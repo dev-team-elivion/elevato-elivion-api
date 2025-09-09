@@ -22,8 +22,6 @@ paths:
     $ref: './paths/recruitment.yaml#/create-candidate'
   /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/file:
     $ref: './paths/recruitment.yaml#/upload-candidate-file'
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/report:
-    $ref: './paths/recruitment.yaml#/get-candidate-report'
   /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}:
     $ref: './paths/recruitment.yaml#/delete-candidate'
 
