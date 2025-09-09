@@ -3,7 +3,7 @@ info:
   version: 0.0.1
   title: Elevato to Elivion API
 servers:
-  - url: https://{customerDomain}.elevato.net/services
+  - url: https://customerDomain.elevato.net/services
 paths:
   /v1/Elivion/CVAssistantResultIncomplete:
     $ref: './paths/elevato.yaml#/analysis-error'
