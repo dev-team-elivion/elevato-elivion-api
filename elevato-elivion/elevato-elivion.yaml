@@ -12,20 +12,16 @@ paths:
     $ref: './paths/customers.yaml#/update-customer'
 
 # Recruitments
-  /api/elevato/v1/customers/{customerId}/recruitment:
+  /api/elevato/v1/customers/{customerId}/recruitments:
     $ref: './paths/recruitment.yaml#/create-process'
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}:
+  /api/elevato/v1/customers/{customerId}/recruitments/{externalRecruitmentProjectId}:
     $ref: './paths/recruitment.yaml#/update-process'
 
 # Candidates
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates:
-    $ref: './paths/recruitment.yaml#/create-candidate'
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/file:
-    $ref: './paths/recruitment.yaml#/upload-candidate-file'
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}/report:
-    $ref: './paths/recruitment.yaml#/get-candidate-report'
-  /api/elevato/v1/customers/{customerId}/recruitment/{externalRecruitmentProjectId}/candidates/{externalCandidateId}:
-    $ref: './paths/recruitment.yaml#/delete-candidate'
+  /api/elevato/v1/customers/{customerId}/recruitments/{externalRecruitmentProjectId}/candidates:
+    $ref: './paths/candidates.yaml#/create-candidate'
+  /api/elevato/v1/customers/{customerId}/recruitments/{externalRecruitmentProjectId}/candidates/{externalCandidateId}:
+    $ref: './paths/candidates.yaml#/delete-candidate'
 
 components:
   securitySchemes:

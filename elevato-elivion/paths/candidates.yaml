@@ -1,0 +1,59 @@
+create-candidate:
+  post:
+    tags:
+      - ElevatoCandidateRest
+    summary: Add Candidate
+    operationId: createCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
+    parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/externalRecruitmentProjectId'
+    requestBody:
+      $ref: '#/components/requestBodies/CreateCandidateRequest'
+    responses:
+      201:
+        description: Created
+
+delete-candidate:
+  delete:
+    tags:
+      - ElevatoCandidateRest
+    summary: Delete Candidate
+    operationId: deleteCandidate
+    security:
+      - apiKey: []
+        customerApiKey: []
+    parameters:
+      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/externalRecruitmentProjectId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/externalCandidateId'
+    responses:
+      204:
+        description: No Content
+
+components:
+  requestBodies:
+    CreateCandidateRequest:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateCandidateRequest'
+
+  schemas:
+    CreateCandidateRequest:
+      type: object
+      properties:
+        externalCandidateId:
+          type: string
+        files:
+          type: array
+          items:
+            type: string
+            format: binary
+
+      required:
+        - externalCandidateId
+        - files
