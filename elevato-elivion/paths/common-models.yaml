@@ -7,3 +7,19 @@ components:
       schema:
         type: string
         format: uuid
+
+    externalRecruitmentProjectId:
+      name: externalRecruitmentProjectId
+      in: path
+      required: true
+      schema:
+        type: string
+
+
+    externalCandidateId:
+      name: externalCandidateId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64

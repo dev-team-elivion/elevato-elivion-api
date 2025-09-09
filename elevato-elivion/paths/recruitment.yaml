@@ -26,64 +26,14 @@ update-process:
         customerApiKey: []
     parameters:
       - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
-      - $ref: '#/components/parameters/externalRecruitmentProjectId'
+      - $ref: '../paths/common-models.yaml/#/components/parameters/externalRecruitmentProjectId'
     requestBody:
       $ref: '#/components/requestBodies/UpdateRecruitmentRequest'
     responses:
       200:
         description: OK
 
-create-candidate:
-  post:
-    tags:
-      - ElevatoCandidateRest
-    summary: Add Candidate
-    operationId: createCandidate
-    security:
-      - apiKey: []
-        customerApiKey: []
-    parameters:
-      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
-      - $ref: '#/components/parameters/externalRecruitmentProjectId'
-    requestBody:
-      $ref: '#/components/requestBodies/CreateCandidateRequest'
-    responses:
-      201:
-        description: Created
-
-delete-candidate:
-  delete:
-    tags:
-      - ElevatoCandidateRest
-    summary: Delete Candidate
-    operationId: deleteCandidate
-    security:
-      - apiKey: []
-        customerApiKey: []
-    parameters:
-      - $ref: '../paths/common-models.yaml/#/components/parameters/customerId'
-      - $ref: '#/components/parameters/externalRecruitmentProjectId'
-      - $ref: '#/components/parameters/externalCandidateId'
-    responses:
-      204:
-        description: No Content
-
 components:
-  parameters:
-    externalRecruitmentProjectId:
-      name: externalRecruitmentProjectId
-      in: path
-      required: true
-      schema:
-        type: string
-    externalCandidateId:
-      name: externalCandidateId
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int64
-
   requestBodies:
     CreateRecruitmentRequest:
       description: Create Recruitment Process
@@ -99,13 +49,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/UpdateRecruitmentRequest'
-
-    CreateCandidateRequest:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CreateCandidateRequest'
 
   schemas:
     RecruitmentDetails:
@@ -136,18 +79,3 @@ components:
     UpdateRecruitmentRequest:
       allOf:
         - $ref: '#/components/schemas/RecruitmentDetails'
-
-    CreateCandidateRequest:
-      type: object
-      properties:
-        externalCandidateId:
-          type: string
-        files:
-          type: array
-          items:
-            type: string
-            format: binary
-
-      required:
-        - externalCandidateId
-        - files
