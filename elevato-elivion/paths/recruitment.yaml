@@ -168,6 +168,12 @@ components:
       properties:
         externalCandidateId:
           type: string
+        files:
+          type: array
+          items:
+            type: string
+            format: binary
+
       required:
         - externalCandidateId
 
