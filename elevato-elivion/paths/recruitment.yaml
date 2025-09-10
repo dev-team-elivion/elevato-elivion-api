@@ -54,6 +54,8 @@ components:
     RecruitmentDetails:
       type: object
       properties:
+        name:
+          type: string
         shortDescription:
           type: string
         duties:
