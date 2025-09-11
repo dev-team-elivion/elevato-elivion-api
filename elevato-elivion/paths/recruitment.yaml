@@ -58,11 +58,17 @@ components:
           type: string
         shortDescription:
           type: string
+        dutiesLabel:
+          type: string
         duties:
+          type: string
+        requiredSkillsLabel:
           type: string
         requiredSkills:
           type: string
         additionalInformation:
+          type: string
+        externalRecruitmentProjectId:
           type: string
 
     RecruitmentId:
