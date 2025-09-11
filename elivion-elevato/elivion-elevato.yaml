@@ -5,9 +5,9 @@ info:
 servers:
   - url: https://customerDomain.elevato.net/services
 paths:
-  /v1/Elivion/CVAssistantResultIncomplete:
+  /v1/Elivion/CVAssistant/AnalysisInterrupted:
     $ref: './paths/elevato.yaml#/analysis-error'
-  /v1/Elivion/CVAssistantResultComplete:
+  /v1/Elivion/CVAssistant/AnalysisResult:
     $ref: './paths/elevato.yaml#/analysis-results'
 
 components:
